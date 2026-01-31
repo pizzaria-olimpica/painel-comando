@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Neon Professional Design System - All colors in HSL */
+
+@layer base {
+  :root {
+    /* Dark theme as default for neon effect */
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Neon Cyan Primary */
+    --primary: 186 100% 50%;
+    --primary-foreground: 222 47% 6%;
+
+    /* Neon Magenta Secondary */
+    --secondary: 300 100% 60%;
+    --secondary-foreground: 222 47% 6%;
+
+    /* Muted with slight neon tint */
+    --muted: 222 30% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Neon Green Accent */
+    --accent: 150 100% 50%;
+    --accent-foreground: 222 47% 6%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 30% 20%;
+    --input: 222 30% 18%;
+    --ring: 186 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Neon glow effects */
+    --neon-cyan: 186 100% 50%;
+    --neon-magenta: 300 100% 60%;
+    --neon-green: 150 100% 50%;
+    --neon-purple: 270 100% 65%;
+    --neon-orange: 25 100% 55%;
+
+    /* Gradients */
+    --gradient-neon: linear-gradient(135deg, hsl(186 100% 50%), hsl(300 100% 60%));
+    --gradient-cyber: linear-gradient(135deg, hsl(270 100% 65%), hsl(186 100% 50%));
+
+    /* Shadows */
+    --shadow-neon-cyan: 0 0 20px hsl(186 100% 50% / 0.4), 0 0 40px hsl(186 100% 50% / 0.2);
+    --shadow-neon-magenta: 0 0 20px hsl(300 100% 60% / 0.4), 0 0 40px hsl(300 100% 60% / 0.2);
+    --shadow-neon-green: 0 0 20px hsl(150 100% 50% / 0.4), 0 0 40px hsl(150 100% 50% / 0.2);
+
+    /* Sidebar - Dark with neon accents */
+    --sidebar-background: 222 47% 5%;
+    --sidebar-foreground: 210 40% 90%;
+    --sidebar-primary: 186 100% 50%;
+    --sidebar-primary-foreground: 222 47% 6%;
+    --sidebar-accent: 222 30% 12%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 222 30% 15%;
+    --sidebar-ring: 186 100% 50%;
+  }
+
+  .dark {
+    /* Same as root since we're using dark as default */
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 10%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 186 100% 50%;
+    --primary-foreground: 222 47% 6%;
+    --secondary: 300 100% 60%;
+    --secondary-foreground: 222 47% 6%;
+    --muted: 222 30% 15%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 150 100% 50%;
+    --accent-foreground: 222 47% 6%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 222 30% 20%;
+    --input: 222 30% 18%;
+    --ring: 186 100% 50%;
+    --sidebar-background: 222 47% 5%;
+    --sidebar-foreground: 210 40% 90%;
+    --sidebar-primary: 186 100% 50%;
+    --sidebar-primary-foreground: 222 47% 6%;
+    --sidebar-accent: 222 30% 12%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 222 30% 15%;
+    --sidebar-ring: 186 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Neon utility classes */
+@layer utilities {
+  .neon-glow-cyan {
+    box-shadow: var(--shadow-neon-cyan);
+  }
+
+  .neon-glow-magenta {
+    box-shadow: var(--shadow-neon-magenta);
+  }
+
+  .neon-glow-green {
+    box-shadow: var(--shadow-neon-green);
+  }
+
+  .neon-text-cyan {
+    color: hsl(var(--neon-cyan));
+    text-shadow: 0 0 10px hsl(186 100% 50% / 0.8), 0 0 20px hsl(186 100% 50% / 0.5);
+  }
+
+  .neon-text-magenta {
+    color: hsl(var(--neon-magenta));
+    text-shadow: 0 0 10px hsl(300 100% 60% / 0.8), 0 0 20px hsl(300 100% 60% / 0.5);
+  }
+
+  .neon-text-green {
+    color: hsl(var(--neon-green));
+    text-shadow: 0 0 10px hsl(150 100% 50% / 0.8), 0 0 20px hsl(150 100% 50% / 0.5);
+  }
+
+  .gradient-neon {
+    background: var(--gradient-neon);
+  }
+
+  .gradient-cyber {
+    background: var(--gradient-cyber);
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50;
+  }
+
+  .neon-border {
+    border: 1px solid hsl(186 100% 50% / 0.3);
+    box-shadow: inset 0 0 20px hsl(186 100% 50% / 0.05);
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(222 47% 8%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(222 30% 25%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(186 100% 50% / 0.5);
+}
